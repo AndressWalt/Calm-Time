@@ -1,0 +1,208 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+html {
+    font-size: 62.5%;
+    font-family: 'Roboto Flex', sans-serif;
+}
+body {
+    background-color: rgb(154, 196, 255);
+}
+:root {
+    --light-blue: #a9ccff;
+    --dark-blue: #4f71b3;
+    --light-pink: #ebd5ff;
+    --white: #feeeee;
+}
+
+/* ------------------------------------------------- */
+
+header {
+    width: 100%;
+    max-width: 1500px;
+    height: 60px;
+    margin: 0 auto;
+
+    position: relative;
+    z-index: 10;
+
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 30px;
+
+    border-bottom: 4px solid rgba(255, 255, 255, 0.5);
+
+    padding-right: 30px;
+}
+header a {
+    font-size: 1.7rem;
+    font-weight: 600;
+
+    color: black;
+}
+header a:nth-child(1)::after{
+    content: "/";
+    padding-left: 10px ;
+    top: 15px;
+    font-size: 2.5rem;
+    position: absolute;
+}
+header i {
+    font-size: 2.5rem;
+    color: var(--dark-blue);
+}
+
+/* --------------------------------------------------- */
+
+main {
+    max-width: 1500px;
+    height: 100vh;
+    margin: 0 auto;
+    margin-top: -60px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    background-color: white;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0,.5);
+}
+
+/* -------- */
+
+.main-left {
+    height: 100%;
+
+    display: grid;
+    place-content: center;
+
+    background-color: var(--light-blue);
+    background-image: url('./img/dots.svg');
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    background-size: 450px;
+
+    animation: movement 10s linear infinite;
+}
+
+@keyframes movement {
+    0% {
+        background-position: 0 100%;
+    }
+    100% {
+        background-position: 300px 100%;
+    }
+}
+.main-left .left-container {
+    margin-bottom: 100px;
+    
+    display: grid;
+    grid-template-rows: 60px 20px 1px;
+    place-content: center;
+    place-items: center;
+    gap: 30px;
+}
+
+.main-left #song {
+    width: 300px;
+    height: 60px;
+    padding: 20px;
+    
+    color: #8197ccd6;
+    background-color: var(--light-pink);
+    border-radius: 5px;
+
+    font-size: 1.7rem;
+    text-align: center;
+    font-weight: bold;
+}
+.main-left .main-icons {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(3, 50px);
+}
+.main-left .main-icons i {
+    color: var(--light-pink);
+
+    font-size: 3.2rem;
+}
+.fa-solid {
+    cursor: pointer;
+}
+.unabled {
+    opacity: .6;
+    cursor: default;
+}
+
+.blocked {
+    animation: shake .6s ease-out;
+}
+
+@keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    
+    20%, 80% {
+      transform: translate3d(1px, 0, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate3d(-2px, 0, 0);
+    }
+  
+    40%, 60% {
+      transform: translate3d(2px, 0, 0);
+    }
+}
+
+.main-left #total-songs {
+    color: var(--light-pink);
+    
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+/* ---------- */
+
+.main-right {
+    height: 100%;
+    padding: 0 100px 350px;
+    
+    display: grid;
+    grid-template-rows: 100px 100px;
+    place-content: center;
+    place-items: start center;
+    
+    gap: 30px;
+
+    background: url('./img/mountain-small.svg') no-repeat;
+    background-position: 0 100%;
+    background-size: 750px;
+}
+.main-right img {    
+    width: 400px;
+    
+    position: relative;
+    top: -150px;
+}
+.main-right p {
+    font-size: 1.9rem;
+    word-spacing: 5px;
+}
+
+@media (min-width: 1500px) {
+    .main-right {
+        background: url('./img/mountain-big.svg') repeat-x;
+        background-position: 70% 100%;
+        background-size: 1290px;
+    }
+}
+@media (min-width: 1950px) {
+    header {
+        /* margin: 0; */
+        max-width: 100%;
+    }
+}
